@@ -1,8 +1,6 @@
 # Advent-of-Code-2017
-#adventofcode
 
-
-Day 3 - Memory Spirals
+### Day 3 - Memory Spirals
 
 I had a horrible time with this. I stayed up late, then was too tired, and gave up
 after an hour.
