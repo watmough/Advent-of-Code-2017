@@ -21,3 +21,6 @@ Enter a value for part 2
 ...output redacted...
 349975
 ```
+
+Code for [Day 03.cpp](https://raw.githubusercontent.com/watmough/Advent-of-Code-2017/master/day%2003.cpp)
+
