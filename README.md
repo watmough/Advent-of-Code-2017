@@ -18,39 +18,39 @@ using namespace std;
 
 unsigned int interpret(vector<int> ins)
 {
-	unsigned int executioncount=0;
-	int pc = 0;
-	while (pc>=0 && pc<ins.size()) {
-		pc += ins[pc]++;
-		executioncount++;
-	}
-	return executioncount;
+    unsigned int executioncount=0;
+    int pc = 0;
+    while (pc>=0 && pc<ins.size()) {
+        pc += ins[pc]++;
+        executioncount++;
+    }
+    return executioncount;
 }
 
 unsigned int interpret2(vector<int> ins)
 {
-	unsigned int executioncount=0;
-	int pc = 0;
-	while (pc>=0 && pc<ins.size()) {
-		pc += (ins[pc]>2 ? ins[pc]-- : ins[pc]++);
-		executioncount++;
-	}
-	return executioncount;
+    unsigned int executioncount=0;
+    int pc = 0;
+    while (pc>=0 && pc<ins.size()) {
+        pc += (ins[pc]>2 ? ins[pc]-- : ins[pc]++);
+        executioncount++;
+    }
+    return executioncount;
 }
 
 int main(int argc, char* argv[])
 {
-	// read jumps
-	vector<int> ins, ins2;
+    // read jumps
+    vector<int> ins, ins2;
     string step;
     while (getline(cin,step) && step.length()>0) {
-		ins.push_back(atoi(step.c_str()));
-	}
-	ins2 = ins;
+                ins.push_back(atoi(step.c_str()));
+    }
+    ins2 = ins;
 
-	cout << "Executed part 1: " << interpret(ins) << endl;
-	cout << "Executed part 2: " << interpret2(ins2) << endl;
-	return 0;
+    cout << "Executed part 1: " << interpret(ins) << endl;
+    cout << "Executed part 2: " << interpret2(ins2) << endl;
+    return 0;
 }
 ```
 
