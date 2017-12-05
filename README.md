@@ -1,5 +1,59 @@
 # Advent-of-Code-2017 
 
+### Day 5 - A Maze of Twisty Trampolines
+
+A fun one!
+
+```C++
+// day 05.cpp
+// Advent of Code 2017
+// http://adventofcode.com/
+
+#include "stdafx.h"
+#include <iostream>
+#include <string>
+#include <vector>
+
+using namespace std;
+
+unsigned int interpret(vector<int> ins)
+{
+	unsigned int executioncount=0;
+	int pc = 0;
+	while (pc>=0 && pc<ins.size()) {
+		pc += ins[pc]++;
+		executioncount++;
+	}
+	return executioncount;
+}
+
+unsigned int interpret2(vector<int> ins)
+{
+	unsigned int executioncount=0;
+	int pc = 0;
+	while (pc>=0 && pc<ins.size()) {
+		pc += (ins[pc]>2 ? ins[pc]-- : ins[pc]++);
+		executioncount++;
+	}
+	return executioncount;
+}
+
+int main(int argc, char* argv[])
+{
+	// read jumps
+	vector<int> ins, ins2;
+    string step;
+    while (getline(cin,step) && step.length()>0) {
+		ins.push_back(atoi(step.c_str()));
+	}
+	ins2 = ins;
+
+	cout << "Executed part 1: " << interpret(ins) << endl;
+	cout << "Executed part 2: " << interpret2(ins2) << endl;
+	return 0;
+}
+```
+
 ### Day 4 - Passphrases
 
 This one was easy. 
