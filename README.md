@@ -1,5 +1,73 @@
 # Advent-of-Code-2017 
 
+### Day 6 - Memory Reallocation
+
+More fun, though I slept in, and didn't start until 4 am or so. This one took me a while as I 
+had a few bugs and forgot to `include <string>`.
+
+```C++
+// day 06.cpp : Defines the entry point for the console application.
+// Advent of Code 2017
+// http://adventofcode.com/
+
+#include "stdafx.h"
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <string>
+#include <map>
+
+using namespace std;
+
+string make_state(vector<int> m)
+{
+    string state = to_string((long long)m[0]);
+    for (auto it=++m.begin(); it<m.end(); it++) {
+        state.append("-");
+        state.append(to_string((long long)*it));
+    }
+    return state;
+}
+
+void reallocate(vector<int>& m)
+{
+    // pick largest bank
+    auto me = max_element(m.begin(),m.end());
+
+    // blocks
+    auto b = *me;
+    *me++ = 0;
+
+    // redist blocks
+    while (b>0) {
+        while (b>0 && me!=m.end())
+            --b, (*me++)++;
+        me = m.begin();
+    }
+}
+
+int main(int argc, char* argv[])
+{
+    // input
+    int i1[] = {0,2,7,0};
+    int i2[] = {10, 3,  15, 10, 5,  15, 5,  15, 9,  2,  5,  8,  5,  2,  3,  6};
+    vector<int> m(i2,i2+sizeof(i2)/sizeof(i2[0]));
+
+    // start at 0 cycles, empty set of states
+    auto cycles = 0;
+    map<string,int> states;
+    while (states.insert(pair<string,int>(make_state(m),cycles))./*did insert*/second==true)
+        reallocate(m), ++cycles;
+
+    // we hid a repeated state, dump cycles total and cycle length
+    cout << "Part 1: " << cycles << endl <<
+            "Part 2: " << cycles-states[make_state(m)] << endl;
+    cin >> cycles;
+    return 0;
+}
+
+```
+
 ### Day 5 - A Maze of Twisty Trampolines
 
 A fun one!
