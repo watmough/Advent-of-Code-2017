@@ -3,10 +3,10 @@
 ### Day 6 - Memory Reallocation
 
 More fun, though I slept in, and didn't start until 4 am or so. This one took me a while as I 
-had a few bugs and forgot to `include <string>`.
+had a few bugs and forgot to `include <string>`. I have cleaned this up a smidge, notably 
+using just the array as the key value in the map.
 
 ```C++
-// day 06.cpp : Defines the entry point for the console application.
 // Advent of Code 2017
 // http://adventofcode.com/
 
@@ -19,30 +19,15 @@ had a few bugs and forgot to `include <string>`.
 
 using namespace std;
 
-string make_state(vector<int> m)
-{
-    string state = to_string((long long)m[0]);
-    for (auto it=++m.begin(); it<m.end(); it++) {
-        state.append("-");
-        state.append(to_string((long long)*it));
-    }
-    return state;
-}
-
 void reallocate(vector<int>& m)
 {
     // pick largest bank
-    auto me = max_element(m.begin(),m.end());
-
-    // blocks
+    auto me = max_element(m.begin(),m.end());   // largest
     auto b = *me;
-    *me++ = 0;
-
-    // redist blocks
-    while (b>0) {
-        while (b>0 && me!=m.end())
-            --b, (*me++)++;
-        me = m.begin();
+    *me++ = 0;                                  // drain
+    while (b>0) {                               // distribute
+        if (me==m.end()) me=m.begin();
+        --b, (*me++)++;
     }
 }
 
@@ -55,17 +40,15 @@ int main(int argc, char* argv[])
 
     // start at 0 cycles, empty set of states
     auto cycles = 0;
-    map<string,int> states;
-    while (states.insert(pair<string,int>(make_state(m),cycles))./*did insert*/second==true)
+    map<vector<int>,int> states;
+    while (states.insert(pair<vector<int>,int>(m,cycles))./*did insert*/second==true)
         reallocate(m), ++cycles;
 
-    // we hid a repeated state, dump cycles total and cycle length
+    // found repeated state, dump cycles total and cycle length
     cout << "Part 1: " << cycles << endl <<
-            "Part 2: " << cycles-states[make_state(m)] << endl;
-    cin >> cycles;
+            "Part 2: " << cycles-states[m] << endl;
     return 0;
 }
-
 ```
 
 ### Day 5 - A Maze of Twisty Trampolines
@@ -73,7 +56,6 @@ int main(int argc, char* argv[])
 A fun one!
 
 ```C++
-// day 05.cpp
 // Advent of Code 2017
 // http://adventofcode.com/
 
@@ -84,23 +66,12 @@ A fun one!
 
 using namespace std;
 
-unsigned int interpret(vector<int> ins)
+unsigned int interpret(vector<int> ins,bool part2 = false)
 {
     unsigned int executioncount=0;
     int pc = 0;
     while (pc>=0 && pc<ins.size()) {
-        pc += ins[pc]++;
-        executioncount++;
-    }
-    return executioncount;
-}
-
-unsigned int interpret2(vector<int> ins)
-{
-    unsigned int executioncount=0;
-    int pc = 0;
-    while (pc>=0 && pc<ins.size()) {
-        pc += (ins[pc]>2 ? ins[pc]-- : ins[pc]++);
+        pc += (part2 && ins[pc]>2 ? ins[pc]-- : ins[pc]++);
         executioncount++;
     }
     return executioncount;
@@ -112,12 +83,12 @@ int main(int argc, char* argv[])
     vector<int> ins, ins2;
     string step;
     while (getline(cin,step) && step.length()>0) {
-                ins.push_back(atoi(step.c_str()));
+        ins.push_back(atoi(step.c_str()));
     }
     ins2 = ins;
 
     cout << "Executed part 1: " << interpret(ins) << endl;
-    cout << "Executed part 2: " << interpret2(ins2) << endl;
+    cout << "Executed part 2: " << interpret(ins2,true) << endl;
     return 0;
 }
 ```
