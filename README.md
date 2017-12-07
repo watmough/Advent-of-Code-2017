@@ -6,6 +6,8 @@ More fun, though I slept in, and didn't start until 4 am or so. This one took me
 had a few bugs and forgot to `include <string>`. I have cleaned this up a smidge, notably 
 using just the array as the key value in the map.
 
+Cleaned up courtesy of this post on [reddit](https://www.reddit.com/r/adventofcode/comments/7hvtoq/2017_day_6_solutions/dquz3rv/).
+
 ```C++
 // Advent of Code 2017
 // http://adventofcode.com/
@@ -21,32 +23,32 @@ using namespace std;
 
 void reallocate(vector<int>& m)
 {
-    auto me = max_element(m.begin(),m.end());   // largest
-    auto b = *me;
-    *me++ = 0;                                  // drain
-    while (b>0) {                               // distribute
-        if (me==m.end()) me=m.begin();
-        --b, (*me++)++;
+    auto me = max_element(m.begin(),m.end());
+    for (auto b{ exchange(*me,0) }; b--; ++*me) {
+        if (++me==m.end()) 
+            me=m.begin();
     }
 }
 
 int main(int argc, char* argv[])
 {
-    int i1[] = {0,2,7,0};
-    int i2[] = {10, 3,  15, 10, 5,  15, 5,  15, 9,  2,  5,  8,  5,  2,  3,  6};
-    vector<int> m(i2,i2+sizeof(i2)/sizeof(i2[0]));
-
-    // start at 0 cycles, empty set of states
+    vector<int> m = { 10, 3, 15, 10, 5, 15, 5, 15, 9, 2, 5, 8, 5, 2, 3, 6 }; //vector<int> m = {0,2,7,0};
+    map<vector<int>, int> states;
     auto cycles = 0;
-    map<vector<int>,int> states;
-    while (states.insert(pair<vector<int>,int>(m,cycles))./*did insert*/second==true)
-        reallocate(m), ++cycles;
-
-    // found repeated state, dump cycles total and cycle length
+    for (auto cycle{ 0 }; states.insert(pair<vector<int>, int>(m, cycles))./*did insert*/second == true; reallocate(m))
+        cycles++;
     cout << "Part 1: " << cycles << endl <<
             "Part 2: " << cycles-states[m] << endl;
     return 0;
 }
+```
+Output is
+```
+C:\Workarea\AOC2017\day 06\x64\Release>"day 06.exe"
+Part 1: 14029
+Part 2: 2765
+
+C:\Workarea\AOC2017\day 06\x64\Release>
 ```
 
 ### Day 5 - A Maze of Twisty Trampolines
