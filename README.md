@@ -63,6 +63,7 @@ A fun one!
 #include <iostream>
 #include <string>
 #include <vector>
+#include <iterator>
 
 using namespace std;
 
@@ -80,17 +81,19 @@ unsigned int interpret(vector<int> ins,bool part2 = false)
 int main(int argc, char* argv[])
 {
     // read jumps
-    vector<int> ins, ins2;
-    string step;
-    while (getline(cin,step) && step.length()>0) {
-        ins.push_back(atoi(step.c_str()));
-    }
-    ins2 = ins;
-
+    vector<int> ins{ istream_iterator<int>{std::cin},{} };
     cout << "Executed part 1: " << interpret(ins) << endl;
-    cout << "Executed part 2: " << interpret(ins2,true) << endl;
+    cout << "Executed part 2: " << interpret(ins,true) << endl;
     return 0;
 }
+```
+Output is:
+```
+C:\Workarea\AOC2017\day 05\x64\Release>"day 05.exe" < input.txt
+Executed part 1: 394829
+Executed part 2: 31150702
+
+C:\Workarea\AOC2017\day 05\x64\Release>
 ```
 
 ### Day 4 - Passphrases
