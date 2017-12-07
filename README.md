@@ -21,7 +21,6 @@ using namespace std;
 
 void reallocate(vector<int>& m)
 {
-    // pick largest bank
     auto me = max_element(m.begin(),m.end());   // largest
     auto b = *me;
     *me++ = 0;                                  // drain
@@ -33,7 +32,6 @@ void reallocate(vector<int>& m)
 
 int main(int argc, char* argv[])
 {
-    // input
     int i1[] = {0,2,7,0};
     int i2[] = {10, 3,  15, 10, 5,  15, 5,  15, 9,  2,  5,  8,  5,  2,  3,  6};
     vector<int> m(i2,i2+sizeof(i2)/sizeof(i2[0]));
@@ -67,20 +65,16 @@ A fun one!
 
 using namespace std;
 
-unsigned int interpret(vector<int> ins,bool part2 = false)
+int interpret(vector<int> ins,bool part2 = false)
 {
-    unsigned int executioncount=0;
-    int pc = 0;
-    while (pc>=0 && pc<ins.size()) {
-        pc += (part2 && ins[pc]>2 ? ins[pc]-- : ins[pc]++);
-        executioncount++;
-    }
+    int executioncount{ 0 }, pc{ 0 };
+    while (pc>=0 && pc<ins.size())
+        executioncount++, pc += (part2 && ins[pc]>2 ? ins[pc]-- : ins[pc]++);
     return executioncount;
 }
 
 int main(int argc, char* argv[])
 {
-    // read jumps
     vector<int> ins{ istream_iterator<int>{std::cin},{} };
     cout << "Executed part 1: " << interpret(ins) << endl;
     cout << "Executed part 2: " << interpret(ins,true) << endl;
