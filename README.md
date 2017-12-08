@@ -23,34 +23,27 @@ is pretty rough and ready, and will need some clean-up.
 
 using namespace std;
 
-typedef struct node;
+struct node;
 typedef struct node { string name; vector<node*> children; int size; } node;
 map<string, node*> nodes;
 
-node *parse(stringstream input)
+void parse(stringstream input)
 {
     string name;
     input >> name;
-    node *n = NULL;
-    if (nodes.find(name) == nodes.end()) {
-        n = nodes[name] = new node;
-    }
-    else {
-        n = nodes[name];
+    node *n = nodes[name];
+    if (n!=nullptr) 
         nodes.erase(name);
-    }
+    if (n==nullptr)
+        n = nodes[name] = new node;
     n->name = name;
-    while (input && (input.peek() == ' ' || input.peek() == '('))
-        input.get();
+    while (input && (input.peek() == ' ' || input.peek() == '('))   input.get();
     input >> n->size;
-    while (input && (input.peek() == ' ' || input.peek() == ')'))
-        input.get();
+    while (input && (input.peek() == ' ' || input.peek() == ')'))   input.get();
+    input >> name;
     while (input >> name) {
-        if (name == "->")
-            continue;
         name.erase(name.find_last_not_of(",") + 1);
         if (nodes.find(name) == nodes.end()) {
-            // create one so it can be loaded
             nodes[name] = new node;
             n->children.push_back(nodes[name]);
         }
@@ -59,7 +52,6 @@ node *parse(stringstream input)
             nodes.erase(name);
         }
     }
-    return n;
 }
 
 int compute_size(node *n)
@@ -71,26 +63,20 @@ int compute_size(node *n)
 }
 
 struct sortobj {
-    bool operator()(node *a, node *b)
-    {
+    bool operator()(node *a, node *b) {
         return a->size < b->size;
     }
 } sortobj;
 
 void find_balance(node * n, int imbalance)
 {
-    // sort children
-    cout << "balance node: " << n->name << endl;
     sort(n->children.begin(), n->children.end(), sortobj);
-    for (auto it=n->children.begin(); it!=n->children.end(); it++)
-        cout << "name: " << (*it)->name << " size: " << (*it)->size << " children: " << (*it)->children.size() << endl;
-    int last{ static_cast<int>(n->children.size()) - 1 };
-    if (n->children[0]->size != n->children[1]->size)
+    size_t last{ n->children.size() - 1 };
+    if (n->children[0]->size != n->children[1]->size) 
         find_balance(n->children[0], n->children[1]->size - n->children[0]->size);
     else if (n->children[last]->size != n->children[last - 1]->size)
         find_balance(n->children[last], n->children[last-1]->size - n->children[last]->size);
     else {
-        cout << "children are balanced " << endl;
         int childtot{ 0 };
         for (auto it = n->children.begin(); it != n->children.end(); ++it)
             childtot += (*it)->size;
@@ -101,12 +87,9 @@ void find_balance(node * n, int imbalance)
 
 int main(int argc, char* argv[])
 {
-    int validcount = 0;
     string row, name;
-    while (getline(cin, row) && row.length()>0) {
-        node * n = parse(stringstream(row));
-        cout << "name: " << n->name << " size: " << n->size << " children: " << n->children.size() << endl;
-    }
+    while (getline(cin, row) && row.length()>0)
+        parse(stringstream(row));
     cout << "nodes count: " << nodes.size() << endl;
     node * n = nodes.begin()->second;
     cout << "name: " << n->name << " size: " << n->size << " children: " << n->children.size() << endl;
