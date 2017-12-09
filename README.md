@@ -719,6 +719,8 @@ int main(int argc, char* argv[])
 
 Part 1
 
+Find the sum of all digits that match the next digit in the list.
+
 ```C++
 // Advent of Code 2017 
 // Day 1 - Inverse Captcha
@@ -743,6 +745,8 @@ int main(int argc, char* argv[])
 ```
 
 Part 2
+
+Find the sum of all digits that match the digit halfway further through the list.
 
 ```C++
 // Advent of Code 2017
