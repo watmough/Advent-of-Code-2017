@@ -29,7 +29,9 @@ int main()
 
 ### Day 8 - I Heard You Like Registers
 
-I love these puzzles. Working on speeding up. Cleaned this up.
+What is the largest value in any register after completing the instructions in your puzzle input? Additionally, to
+be safe, the CPU also needs to know the highest value held in any register during this process so that it can decide 
+how much memory to allocate to these operations.
 
 ```C++
 // Advent of Code 2017
@@ -48,7 +50,7 @@ I love these puzzles. Working on speeding up. Cleaned this up.
 
 using namespace std;
 
-/* Test Input
+/*
 m n   o p  q r s
 b inc 5 if a > 1
 a inc 1 if b < 5
@@ -79,18 +81,25 @@ int main(int argc, char* argv[])
     string row;
     while (getline(cin, row))
         step(ops, reg, regmax, stringstream(row));
+    cout << "Max (final): " << (*max_element(reg.begin(), reg.end(), [](pair<string, int> p1, pair<string, int> p2) {return p1.second < p2.second; })).second << endl;
+    cout << "Max (ever ): " << (*max_element(regmax.begin(), regmax.end(), [](pair<string, int> p1, pair<string, int> p2) {return p1.second < p2.second; })).second << endl;
     return 0;
 }
+```
+Output:
+```
+Max (final): 4902
+Max (ever ): 7037
 ```
 
 ### Day 7 - Recursive Circus
 
-My pre-11 pm 'power-nap' turned into a 'power sleep' and I didn't get a chance to work on 
-this one until much later in that day.
-
 This has now been cleaned up significantly. The input data is filtered and massaged, which
 is cheap and simplifies parsing. I have also broken out the fixing up of the nodes into a
 tree out into a separate piece of code.
+
+What is the name of the bottom program? Additionally, given that exactly one program is the wrong weight, 
+what would its weight need to be to balance the entire tower?
 
 ```C++
 // Advent of Code 2017
@@ -261,9 +270,11 @@ Part 2: 2765
 C:\Workarea\AOC2017\day 06\x64\Release>
 ```
 
-### Day 5 - A Maze of Twisty Trampolines
+### Day 5 - A Maze of Twisty Trampolines - All Alike
 
-A fun one!
+How many steps does it take to reach the exit? Now, the jumps are even stranger: after each jump, 
+if the offset was three or more, instead decrease it by 1. Otherwise, increase it by 1 as before. 
+How many steps does it now take to reach the exit?
 
 ```C++
 // Advent of Code 2017
@@ -304,7 +315,10 @@ C:\Workarea\AOC2017\day 05\x64\Release>
 
 ### Day 4 - Passphrases
 
-This one was easy. 
+The system's full passphrase list is available as your puzzle input. How many passphrases are valid? Additionally,
+For added security, yet another system policy has been put in place. Now, a valid passphrase must contain no two 
+words that are anagrams of each other - that is, a passphrase is invalid if any word's letters can be rearranged 
+to form any other word in the passphrase. Under this new system policy, how many passphrases are valid?
 
 ```C++
 // day04.cpp : Defines the entry point for the console application.
