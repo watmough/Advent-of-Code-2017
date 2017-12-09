@@ -632,6 +632,89 @@ Enter a value for part 2
 ...output redacted...
 349975
 ```
+### Day 2 - Corruption Checksum
+
+Part 1
+
+Accumulate the difference between the largest and smallest value on each line.
+
+```C++
+// Advent of Code 2017
+// Day 3 - Corruption Checksum
+
+#include "stdafx.h"
+#include <iostream>
+#include <string>
+#include <sstream>
+#include <limits>
+#include <algorithm>
+
+int main(int argc, char* argv[])
+{
+    std::string row;
+    int num = 0;
+    int check = 0;
+    while (std::getline(std::cin,row) && row.length()>0) {
+        std::stringstream str(row);
+        int min = INT_MAX;
+        int max = INT_MIN;
+        while (str >> num) {
+            min = std::min(min,num);
+            max = std::max(max,num);
+        }
+        check += max-min;
+    }
+    std::cout << "Checksum is " << check << std::endl;
+    return 0;
+}
+```
+
+Part 2
+
+Find the only two evenly divisible numbers on each line and accumulate the result of
+each division by line.
+
+```C++
+// Advent of Code 2017
+// Day 03 - Corruption Checksum (Part 2)
+
+#include "stdafx.h"
+#include <iostream>
+#include <string>
+#include <sstream>
+#include <limits>
+#include <vector>
+#include <algorithm>
+
+bool rev (int i,int j) { return (j<i); }
+
+int main(int argc, char* argv[])
+{
+    std::string row;
+    int num = 0;
+    int check = 0;
+    std::vector<int> arr;
+    while (std::getline(std::cin,row) && row.length()>0) {
+        std::stringstream str(row);
+        arr.erase(arr.begin(),arr.end());
+        while (str >> num)
+            arr.push_back(num);
+        for (auto it = arr.begin(); it<arr.end(); ++it) {
+            for (auto it2 = arr.begin(); it2<arr.end(); ++it2) {
+                int di = *it;
+                int dv = *it2;
+                if (di>dv && di%dv==0) {
+                    check += (di/dv);
+                }
+            }
+        }
+    }
+
+    std::cout << "Checksum is " << check << std::endl;
+    return 0;
+}
+```
+
 ### Day 1 - Inverse Captcha
 
 Part 1
