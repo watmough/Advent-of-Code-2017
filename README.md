@@ -2,11 +2,12 @@
 
 ### Day 8 - I Heard You Like Registers
 
-I love these puzzles. Working on speeding up.
+I love these puzzles. Working on speeding up. Cleaned this up.
 
 ```C++
 // Advent of Code 2017
 // http://adventofcode.com/
+// Day 08 - I Heard You Like Registers
 
 #include "stdafx.h"
 #include <iostream>
@@ -16,10 +17,11 @@ I love these puzzles. Working on speeding up.
 #include <sstream>
 #include <algorithm>
 #include <numeric>
+#include <functional>
 
 using namespace std;
 
-/*
+/* Test Input
 m n   o p  q r s
 b inc 5 if a > 1
 a inc 1 if b < 5
@@ -27,41 +29,29 @@ c dec -10 if a >= 1
 c inc -20 if c == 10
 */
 
-void interpret(map<string, int>& reg, map<string, int>& regmax, vector<string>& inst)
+void step(map<string, function<bool(int, int)> > ops, map<string, int>& reg, map<string, int>& regmax, stringstream ins)
 {
-    for (auto it = inst.begin(); it != inst.end(); ++it) {
-        string ins = *it;
-        stringstream input(ins);
-        string m, n, o, p, q, r, s;
-        input >> m >> n >> o >> p >> q >> r >> s;
-        if (r == ">" && reg[q] > atoi(s.c_str()))
-            reg[m] += atoi(o.c_str())*(n[0] == 'i' ? 1 : -1);
-        if (r == "<" && reg[q] < atoi(s.c_str()))
-            reg[m] += atoi(o.c_str())*(n[0] == 'i' ? 1 : -1);
-        if (r == ">=" && reg[q] >= atoi(s.c_str()))
-            reg[m] += atoi(o.c_str())*(n[0] == 'i' ? 1 : -1);
-        if (r == "<=" && reg[q] <= atoi(s.c_str()))
-            reg[m] += atoi(o.c_str())*(n[0] == 'i' ? 1 : -1);
-        if (r == "==" && reg[q] == atoi(s.c_str()))
-            reg[m] += atoi(o.c_str())*(n[0] == 'i' ? 1 : -1);
-        if (r == "!=" && reg[q] != atoi(s.c_str()))
-            reg[m] += atoi(o.c_str())*(n[0] == 'i' ? 1 : -1);
-        regmax[m] = max(reg[m], regmax[m]);
-    }
-
+    string m, n, p, q, r; int o, s;
+    ins >> m >> n >> o >> p >> q >> r >> s;
+    if (ops[r](reg[q],s))
+        reg[m] += o*(n == "inc" ? 1 : -1);
+    regmax[m] = max(reg[m], regmax[m]);
 }
 
 int main(int argc, char* argv[])
 {
-    map<string, int> reg;
-    map<string, int> regmax;
-    vector<string> inst;
-    string row;
-    while (getline(cin, row)) {
-        inst.push_back(row);
-    }
-    interpret(reg, regmax, inst);   
+    map<string, function<bool(int, int)> > ops;
+    ops["<"] =  [](int a, int b)->bool {return a <  b; };
+    ops[">"] =  [](int a, int b)->bool {return a >  b; };
+    ops["<="] = [](int a, int b)->bool {return a <= b; };
+    ops[">="] = [](int a, int b)->bool {return a >= b; };
+    ops["=="] = [](int a, int b)->bool {return a == b; };
+    ops["!="] = [](int a, int b)->bool {return a != b; };
 
+    map<string, int> reg, regmax;
+    string row;
+    while (getline(cin, row))
+        step(ops, reg, regmax, stringstream(row));
     return 0;
 }
 ```
