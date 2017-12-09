@@ -640,7 +640,7 @@ Accumulate the difference between the largest and smallest value on each line.
 
 ```C++
 // Advent of Code 2017
-// Day 3 - Corruption Checksum
+// Day 2 - Corruption Checksum Part 1
 
 #include "stdafx.h"
 #include <iostream>
@@ -676,7 +676,7 @@ each division by line.
 
 ```C++
 // Advent of Code 2017
-// Day 03 - Corruption Checksum (Part 2)
+// Day 02 - Corruption Checksum Part 2
 
 #include "stdafx.h"
 #include <iostream>
@@ -685,8 +685,6 @@ each division by line.
 #include <limits>
 #include <vector>
 #include <algorithm>
-
-bool rev (int i,int j) { return (j<i); }
 
 int main(int argc, char* argv[])
 {
