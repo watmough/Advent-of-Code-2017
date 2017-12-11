@@ -15,7 +15,7 @@ using namespace std;
 
 fwd back
 s   n  -> o
-se  sw -> o
+se  nw -> o	        // fixed typo
 ne  sw -> o
 
 l1 l2    r
@@ -27,6 +27,7 @@ ne nw -> n
 se sw -> s
 
 */
+
 
 void reduce_turn(map<string, int>& path, string l1, string l2, string r)
 {
