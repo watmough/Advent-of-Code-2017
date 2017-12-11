@@ -28,7 +28,7 @@ using namespace std;
 
 fwd back
 s   n  -> o
-se  sw -> o
+se  nw -> o         // fixed typo
 ne  sw -> o
 
 l1 l2    r
