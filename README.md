@@ -42,8 +42,12 @@ int main()
 ```
 Output:
 ```
+PS C:\Workarea\AOC2017\day 15\x64\Release> & '.\day 15.exe'
 Part 1: 600 matches.
+Ran in 241.696 msec
 Part 2: 313 matches.
+Ran in 373.521 msec
+PS C:\Workarea\AOC2017\day 15\x64\Release>
 ```
 
 ### Day 14 - Disk Defragmentation
