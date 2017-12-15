@@ -42,6 +42,16 @@ int main()
 ```
 Output:
 ```
+OS X:
+Jonathans-Pro:Advent-of-Code-2017 jonathan$ clang day\ 15.cpp -std=c++14 -stdlib=libc++ -lc++ -O3 -march=native
+Jonathans-Pro:Advent-of-Code-2017 jonathan$ ./a.out
+Part 1: 600 matches.
+Ran in 283.792 msec
+Part 2: 313 matches.
+Ran in 411.678 msec
+Jonathans-Pro:Advent-of-Code-2017 jonathan$ 
+
+Windows 10:
 PS C:\Workarea\AOC2017\day 15\x64\Release> & '.\day 15.exe'
 Part 1: 600 matches.
 Ran in 241.696 msec
