@@ -477,6 +477,8 @@ C:\Workarea\AOC2017\day 11\x64\Release>
 
 ### Day 10 - Knot Hash
 
+Rank: 257 / 463
+
 Once this process is complete, what is the result of multiplying the first two numbers in the list?
 
 Treating your puzzle input as a string of ASCII characters, what is the Knot Hash of your puzzle input?
@@ -547,6 +549,8 @@ C:\Workarea\AOC2017\day 10\x64\Debug>
 
 ### Day 9 - Stream Processing
 
+Rank: 314 / 256
+
 Count and accumulate a simple nested grammar and skip an almost as simple garbage 
 product. e.g. {{}{}<!>>{<>}}
 
@@ -573,6 +577,8 @@ int main()
 ```
 
 ### Day 8 - I Heard You Like Registers
+
+Rank: 931 / 910
 
 What is the largest value in any register after completing the instructions in your puzzle input? 
 
@@ -641,7 +647,9 @@ Max (ever ): 7037
 
 ### Day 7 - Recursive Circus
 
-This has now been cleaned up significantly. The input data is filtered and massaged, which
+Rank: 6625 / 5791
+
+Notes: This has now been cleaned up significantly. The input data is filtered and massaged, which
 is cheap and simplifies parsing. I have also broken out the fixing up of the nodes into a
 tree out into a separate piece of code.
 
@@ -770,6 +778,8 @@ C:\Workarea\AOC2017\day 07\x64\Debug>
 ```
 ### Day 6 - Memory Reallocation
 
+Rank: 5253 / 5049
+
 Given the initial block counts in your puzzle input, how many redistribution cycles must be 
 completed before a configuration is produced that has been seen before?
 
@@ -822,6 +832,8 @@ C:\Workarea\AOC2017\day 06\x64\Release>
 
 ### Day 5 - A Maze of Twisty Trampolines - All Alike
 
+Rank: 6932 / 6599
+
 How many steps does it take to reach the exit? 
 
 Additionally, now the jumps are even stranger: after each jump, 
@@ -866,6 +878,8 @@ C:\Workarea\AOC2017\day 05\x64\Release>
 ```
 
 ### Day 4 - Passphrases
+
+Rank: 1410 / 1109
 
 The system's full passphrase list is available as your puzzle input. How many passphrases are valid? 
 
@@ -917,7 +931,7 @@ int main(int argc, char* argv[])
 }
 ```
 
-### Day 3 - Spiral Memory - Take 2: Another Crack at This!
+### Day 3 - Spiral Memory - Take 2: Rewite!
 
 Code for [Day 03.cpp](https://raw.githubusercontent.com/watmough/Advent-of-Code-2017/master/day%2003.cpp)
 
@@ -1041,6 +1055,8 @@ Value is 349975
 ```
 
 ### Day 3 - Memory Spirals
+
+Rank: 5454 / 3723 (Based on this code, not the rewrite)
 
 How many steps are required to carry the data from the square identified in your puzzle input all the way to the access port?
 
@@ -1206,6 +1222,8 @@ Enter a value for part 2
 ```
 ### Day 2 - Corruption Checksum
 
+Rank: 6722 / 6018
+
 Part 1
 
 Accumulate the difference between the largest and smallest value on each line.
@@ -1287,7 +1305,7 @@ int main(int argc, char* argv[])
 
 ### Day 1 - Inverse Captcha
 
-Part 1
+Rank: 7576 / 6254
 
 Find the sum of all digits that match the next digit in the list.
 

@@ -5,16 +5,28 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "(Windows) Launch",
+            "type": "cppvsdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/task.exe",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "externalConsole": true
+        },
+        {
             "name": "(lldb) Launch",
             "type": "cppdbg",
             "request": "launch",
             "program": "${workspaceFolder}/task.exe",
-            "args": ["-exec watch set var a"],
+            //"args": ["-exec watch set var a"],
             "stopAtEntry": true,
             "cwd": "${workspaceFolder}",
             "environment": [],
-            "externalConsole": true,
-            "MIMode": "lldb"
+            "externalConsole": false,
+            "MIMode": "lldb",
+            "miDebuggerPath": "C:\\Program Files\\LLVM\\bin\\lldb.exe",
         }
     ]
 }
