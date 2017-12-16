@@ -6,7 +6,7 @@
         {
             "label": "build",
             "type": "shell",
-            "command": "clang -Xclang -flto-visibility-public-std -std=c++14 day_17.cpp -o day17.exe",
+            "command": "clang -Xclang -flto-visibility-public-std -std=c++14 day_16.cpp -o task.exe",
             "problemMatcher": {
                 "owner": "cpp",
                 "fileLocation": [

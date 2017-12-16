@@ -16,7 +16,7 @@ int main()
     int n,n1,n2;
     string ins;
     char ch;
-    map<string,uint> seq;            // cycle?
+    map<string,unsigned int> seq;            // cycle?
     string p = "abcdefghijklmnop";
 
     for(int i=0;i<1000000000%60;++i)

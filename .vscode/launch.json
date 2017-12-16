@@ -8,7 +8,7 @@
             "name": "(lldb) Launch",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/day_16",
+            "program": "${workspaceFolder}/task.exe",
             "args": ["-exec watch set var a"],
             "stopAtEntry": true,
             "cwd": "${workspaceFolder}",
