@@ -4,16 +4,24 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "build day_16.cpp",
+            "label": "build",
             "type": "shell",
-            "command": "clang",
-            "args": [
-                "day_16.cpp -g -std=c++14 -stdlib=libc++ -lc++  -o day_16"
-            ],
-            "group": {
-                "kind": "build",
-                "isDefault": true
-            }
+            "command": "clang -Xclang -flto-visibility-public-std -std=c++14 day_17.cpp -o day17.exe",
+            "problemMatcher": {
+                "owner": "cpp",
+                "fileLocation": [
+                    "relative",
+                    "${workspaceRoot}"
+                ],
+                "pattern": {
+                    "regexp": "^(.*):(\\d+):(\\d+):\\s+(warning|error):\\s+(.*)$",
+                    "file": 1,
+                    "line": 2,
+                    "column": 3,
+                    "severity": 4,
+                    "message": 5
+                }
+    
         }
     ]
 }
