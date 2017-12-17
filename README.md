@@ -131,6 +131,17 @@ Ran in 241.696 msec
 Part 2: 313 matches.
 Ran in 373.521 msec
 PS C:\Workarea\AOC2017\day 15\x64\Release>
+
+Windows 10 GCC (defaults)
+
+PS C:\Workarea\Advent-of-Code-2017> .\a.exe
+Part 1: 600 matches.
+Ran in 891.216 msec
+Part 2: 313 matches.
+Ran in 1096.93 msec
+PS C:\Workarea\Advent-of-Code-2017>
+
+
 ```
 
 ### Day 14 - Disk Defragmentation

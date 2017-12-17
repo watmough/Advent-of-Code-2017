@@ -1,13 +1,13 @@
 // Advent of Code 2017
 // Day 02 - Corruption Checksum Part 2
 
-#include "stdafx.h"
 #include <iostream>
 #include <string>
 #include <sstream>
-#include <limits>
+#include <limits.h>
 #include <vector>
 #include <algorithm>
+using namespace std;
 
 int main(int argc, char* argv[])
 {

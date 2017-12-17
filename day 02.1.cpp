@@ -1,22 +1,21 @@
 // Advent of Code 2017
 // Day 2 - Corruption Checksum Part 1
 
-#include "stdafx.h"
 #include <iostream>
 #include <string>
 #include <sstream>
-#include <limits>
 #include <algorithm>
+#include <limits.h>
+using namespace std;
 
 int main(int argc, char* argv[])
 {
-    std::string row;
-    int num = 0;
-    int check = 0;
-    while (std::getline(std::cin,row) && row.length()>0) {
-        std::stringstream str(row);
-        int min = INT_MAX;
-        int max = INT_MIN;
+    auto row = string();
+    auto num{0}, check{0};
+    while (getline(cin,row) && row.length()>0) {
+        stringstream str(row);
+        int min{INT_MAX};
+        int max{INT_MIN};
         while (str >> num) {
             min = std::min(min,num);
             max = std::max(max,num);

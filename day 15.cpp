@@ -8,12 +8,12 @@ using namespace std;
 int main()
 {
     //unsigned long long int a{ 65 }, b{ 8921 };
-    unsigned long long int a{ 699 }, b{ 124 };
-    int match{ 0 };
+    auto a{ 699ul }, b{ 124ul };
+    auto match{ 0u };
     auto start = std::chrono::high_resolution_clock::now();
     for (auto i{ 0 }; i < 40000000; ++i) {
-        a = (a * 16807ll) % 2147483647ll;
-        b = (b * 48271ll) % 2147483647ll;
+        a = (a * 16807u) % 2147483647u;
+        b = (b * 48271u) % 2147483647u;
         if ((a&0xffff) == (b&0xffff))
             match++;
     }
@@ -25,8 +25,8 @@ int main()
     a = 699, b = 124, match = 0;
     start = std::chrono::high_resolution_clock::now();
     for (auto i{ 0 }; i < 5000000; ++i) {
-        do a = (a * 16807ll) % 2147483647ll; while (a % 4);
-        do b = (b * 48271ll) % 2147483647ll; while (b % 8);
+        do a = (a * 16807u) % 2147483647u; while (a % 4u);
+        do b = (b * 48271u) % 2147483647u; while (b % 8u);
         if ((a & 0xffff) == (b & 0xffff))
             match++;
     }

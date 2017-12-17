@@ -8,7 +8,7 @@
             "name": "C++ Launch (gdb-win lldb-osx)",
             "type": "cppdbg",
             "request": "launch",
-            "program": "C:\\Workarea\\Advent-of-Code-2017\\task.exe",
+            "program": "C:\\Workarea\\Advent-of-Code-2017\\a.exe",
             "args": [],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",
