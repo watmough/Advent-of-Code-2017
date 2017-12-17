@@ -6,7 +6,7 @@
         {
             "label": "build",
             "type": "shell",
-            "command": "g++ -O2 -march=native -std=c++14 '${relativeFile}' -o a.exe",
+            "command": "g++ -g -O0 -std=c++14 '${relativeFile}' -o a.exe",
             "problemMatcher": {
                 "owner": "cpp",
                 "fileLocation": [
