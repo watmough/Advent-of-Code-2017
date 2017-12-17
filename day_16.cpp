@@ -19,7 +19,7 @@ int main()
     map<string,unsigned int> seq;            // cycle?
     string p = "abcdefghijklmnop";
 
-    for(int i=0;i<1000000000%60;++i)
+    for(int i=0;i<1000000000ll;++i)
     {
         ifstream in("day_16.txt");
         while(in >> ch) {
@@ -54,6 +54,12 @@ int main()
         }
         if (seq.find(p)!=seq.end()) {
             cout << "Found a repeat of " << p << " at " << i << endl;
+            cout << "1000000000 % i = " << 1000000000ll % i << endl;
+            auto resultit = find_if(begin(seq),end(seq),[&](pair<string,int> p){
+                    return p.second==(1000000000ll % i)-1;
+                });
+            cout << (*resultit).first << endl;
+            exit(0);
         }
         seq[p] = i;
     }
