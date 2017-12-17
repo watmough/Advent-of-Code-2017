@@ -1,8 +1,50 @@
 # Advent-of-Code-2017 
 
+### Day 17 - Spinlock
+
+Rank: 414 / 928
+
+```C++
+// Advent of Code 2017
+// Day 17 - Spinlock
+
+#include <iostream>
+#include <vector>
+#include <cassert>
+using namespace std;
+
+int main()
+{
+    vector<int> buffer;
+    int step{335};
+    buffer.push_back(0);
+    auto pos = 0u;
+    for (auto i=1;i<=2017;++i) {
+        pos = (pos + step) % buffer.size();
+        buffer.insert(begin(buffer)+pos+1,i);
+        pos++;
+    }
+    cout << "Part 1: " << buffer[(pos+1)%buffer.size()] << endl;
+    
+    buffer.erase(begin(buffer),end(buffer));
+    buffer.insert(begin(buffer),0);
+    pos = 0u;
+    auto sz = 1u;
+    for (auto i=1;i<=50000000;++i) {
+        pos = (pos + step) % sz;
+        if (pos==0)
+            buffer.insert(begin(buffer)+pos+1,i);
+        sz++;
+        pos++;
+    }    
+    cout << "Part 2: " << buffer[1] << endl;   
+    return 0;
+}
+```
+
 ### Day 16 - Permutation Promenade
 
-Rank: 959/580
+Rank: 959 / 580
 
 You watch the dance for a while and record their dance moves (your puzzle input). In 
 what order are the programs standing after their dance?
@@ -75,7 +117,7 @@ int main()
 
 ### Day 15 - Dueling Generators
 
-Rank: 576/498
+Rank: 576 / 498
 
 To get a significant sample, the judge would like to consider 40 million pairs. (In the example above, the judge would eventually find a total of 588 pairs that match in their lowest 16 bits.)
 After 40 million pairs, what is the judge's final count?
@@ -146,7 +188,7 @@ PS C:\Workarea\Advent-of-Code-2017>
 
 ### Day 14 - Disk Defragmentation
 
-Rank: 304/334
+Rank: 304 / 334
 
 Given your actual key string, how many squares are used?
 
@@ -250,7 +292,7 @@ int main()
 
 ### Day 13 - Packet Scanners
 
-Rank: 3945/5082
+Rank: 3945 / 5082
 
 Given the details of the firewall you've recorded, if you leave immediately, what is the severity of your whole trip?
 
@@ -312,7 +354,7 @@ Part 2: 3960702
 
 ### Day 12 - Digital Plumber
 
-Rank: 1341/2225 Live-streamed.
+Rank: 1341 / 2225 Live-streamed.
 
 How many programs are in the group that contains program ID 0?
 
@@ -393,7 +435,9 @@ C:\Workarea\AOC2017\day 12\x64\Debug>
 
 ### Day 11 - Hex Ed
 
-Rank: 1035/1068 I 'live-streamed' this one, and it slowed me down a bit. I also gave up on the live-stream
+Rank: 1035 / 1068 
+
+I 'live-streamed' this one, and it slowed me down a bit. I also gave up on the live-stream
 and was able to get my solution working in about 5 more minutes.
 
 You have the path the child process took. Starting where he started, you need to determine the fewest 
