@@ -5,6 +5,14 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug",
+            "program": "${workspaceRoot}/a.out",
+            "args": [],
+            "cwd": "${workspaceRoot}",    
+        },
+        {
             "name": "C++ Launch (gdb-win lldb-osx)",
             "type": "cppdbg",
             "request": "launch",

@@ -1,2 +1,6 @@
 task.exe
 *exe
+a.out
+*out
+a.out*
+clang.txt
