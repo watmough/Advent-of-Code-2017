@@ -6,8 +6,8 @@
         {
             "label": "build",
             "type": "shell",
-//            "command": "g++ -g -O0 -std=c++14 '${relativeFile}' -o a.exe",
-            "command": "clang++ -g -O0 -std=c++14 '${relativeFile}' -o a.out",
+            "command": "g++ -g -O0 -std=c++14 '${relativeFile}' -o a.exe",
+//            "command": "clang++ -g -O0 -std=c++14 '${relativeFile}' -o a.out",
             "problemMatcher": {
                 "owner": "cpp",
                 "fileLocation": [

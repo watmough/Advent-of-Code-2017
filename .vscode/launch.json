@@ -17,7 +17,7 @@
             "type": "cppdbg",
             "request": "launch",
             "program": "C:\\Workarea\\Advent-of-Code-2017\\a.exe",
-            "args": [],
+            "args": [" < day_18.ts1"],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",
             "environment": [],
