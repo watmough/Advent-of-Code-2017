@@ -1,7 +1,6 @@
 // Advent of Code 2017
 // Day 10 - Knot Hash
 
-#include "stdafx.h"
 #include <iostream>
 #include <iomanip>
 #include <string>

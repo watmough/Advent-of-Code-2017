@@ -2,7 +2,6 @@
 // http://adventofcode.com/
 // Day 11 - Hex Ed
 
-#include "stdafx.h"
 #include <iostream>
 #include <string>
 #include <map>

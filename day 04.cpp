@@ -2,7 +2,6 @@
 // Advent of Code 2017
 // http://adventofcode.com/
 
-#include "stdafx.h"
 #include <iostream>
 #include <string>
 #include <vector>

@@ -2,7 +2,6 @@
 // http://adventofcode.com/
 // Day 09 - Stream Processing
 
-#include "stdafx.h"
 #include <iostream>
 
 using namespace std;
