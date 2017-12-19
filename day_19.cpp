@@ -13,17 +13,13 @@ typedef enum direction {nomove,u,d,l,r} direction;
 direction next_move(vector<string>& lines, int row, int col,direction dir)
 {
     switch(dir) {       // preferred direction
-    case u:
-        if (dir!=d && row>0 && lines[row-1][col]!=' ') return u;
-    case d:
-        if (dir!=u && row<lines.size()-1 && lines[row+1][col]!=' ') return d;
-    case r:
-        if (dir!=l && col<lines[row].length()-1 && lines[row][col+1]!=' ') return r;
-    case l:
-        if (dir!=r && col>0 && lines[row][col-1]!=' ') return l;
-        if (dir!=d && row>0 && lines[row-1][col]!=' ') return u;        // mop up any corners
-        if (dir!=u && row<lines.size()-1 && lines[row+1][col]!=' ') return d;
-        if (dir!=l && col<lines[row].length()-1 && lines[row][col+1]!=' ') return r;
+    case u: if (dir!=d && row>0 && lines[row-1][col]!=' ') return u;
+    case d: if (dir!=u && row<lines.size()-1 && lines[row+1][col]!=' ') return d;
+    case r: if (dir!=l && col<lines[row].length()-1 && lines[row][col+1]!=' ') return r;
+    case l: if (dir!=r && col>0 && lines[row][col-1]!=' ') return l;
+            if (dir!=d && row>0 && lines[row-1][col]!=' ') return u;        // mop up any corners
+            if (dir!=u && row<lines.size()-1 && lines[row+1][col]!=' ') return d;
+            if (dir!=l && col<lines[row].length()-1 && lines[row][col+1]!=' ') return r;
     }
     return nomove;
 }
@@ -61,6 +57,6 @@ int main()
     }
     int steps = 0;
     string letters = follow(lines,steps);
-    cout << letters << endl;
+    cout << letters << " " << steps << endl;
     return 0;
 }
