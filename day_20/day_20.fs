@@ -39,7 +39,7 @@ let stepAll state =     // group by position, and filter by non-colliding
     |> Seq.map simulate
 
 let particleCount state =
-    let next = stepAll2 state
+    let next = stepAll state
     Some (Seq.length next,next)
 
 let state = 
