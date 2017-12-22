@@ -2,6 +2,10 @@
     "files.associations": {
         "ostream": "cpp",
         "xstring": "cpp",
-        "string": "cpp"
+        "string": "cpp",
+        "ios": "cpp",
+        "iosfwd": "cpp",
+        "type_traits": "cpp",
+        "xutility": "cpp"
     }
 }
