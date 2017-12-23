@@ -1,0 +1,53 @@
+// Advent of Code 2017
+// Day 21
+
+Notes:
+* no way for 2rules not to match
+
+rules
+2x2 -> 3x3
+3x3 -> 4x4
+
+hash all rule inputs for 2x2 and 3x3
+flip x, flip y, rot 90, rot 180, rot 270
+
+hash2x2 [0,1,2,3]
+    for i=0 .. 3 hash|=(bit[i]<<i)
+
+[[0,1,2,3],[2,3,0,1],[1,0,3,2],[1,3,0,2],[3,2,0,1],[2,0,3,1]]
+hash2x2mult input output =
+    for each configuration
+        for i=0 .. 3 hash|=(bit[i]<<i)
+
+
+split2:
+    for r=0 .. side/2-1
+        for c=0 ... side/2-1
+            hash = 
+
+
+Structures:
+
+2rules: hash -> output 3x3
+3rules: hash -> output 4x4
+
+bitmap
+    split2 -> list hashes
+    split3 -> list hashes
+    unify list hashes -> bitmap
+
+unify: list outputs
+    create a new bitmap -> vector<bool> bitmap
+    for each list output
+        copy output into bitmap
+
+Read rules
+Hash rule matches and create 2map hash -> output and 3map hash -> output
+
+bitmap <- input
+While not done count
+    split2 or split3 bitmap to list of hashes (by row the col)
+    [match hashes to output rules]
+    generate2x2 or generate3x3 from list of hashes
+    unify list of hashes
+
