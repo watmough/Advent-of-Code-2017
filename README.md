@@ -1,5 +1,15 @@
 # Advent-of-Code-2017 
 
+### Day 22 - Coprocessor Conflagration
+
+Rank: 345 / ---
+
+Part 1 was a pretty simple hack of Day 18 - Duet.
+
+```C++
+
+```
+
 ### Day 22 - Sporifica Virus
 
 I was a few hours late starting with this one. 
