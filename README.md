@@ -7,7 +7,165 @@ Rank: 345 / ---
 Part 1 was a pretty simple hack of Day 18 - Duet.
 
 ```C++
+// Advent of Code 2017
+// Day 23 - Coprocessor Conflagration
 
+#include <iostream>
+#include <string>
+#include <map>
+#include <vector>
+#include <chrono>
+using namespace std;
+
+long mul = 0;
+
+bool step(const vector<string>& iv,const vector<string>& xv,const vector<string>& yv,
+          map<string,long long>& reg,
+          vector<long long>& send, long long& sentcount,
+          vector<long long>& recv)
+{
+    string tok = iv[reg["pc"]];
+    string opx = xv[reg["pc"]];
+    string opy = yv[reg["pc"]];
+//    cout << tok << " " << opx << " " << opy << endl;
+    if (tok=="snd") {
+        send.push_back(opx[0]<'a' ? stoi(opx) : reg[opx]);
+        sentcount++;
+    }
+    if (tok=="rcv" && recv.size()==0) {
+        return false;
+    }
+    if (tok=="rcv" && recv.size()>0) {
+        reg[opx] = recv.front();
+        recv.erase(begin(recv));
+    }
+    const long long opyval = opy.length()==0 ? 0 : (opy[0]<'a' ? stoi(opy) : reg[opy]);
+    if (tok=="set") reg[opx] = opyval;
+    if (tok=="sub") reg[opx] -= opyval;
+    if (tok=="mul") {mul++; reg[opx] *= opyval;}
+    if (tok=="mod") reg[opx] %= opyval;
+    if (tok=="jnz" && ((opx[0]<'a' && stoi(opx)!=0)||reg[opx]!=0)) reg["pc"] += opyval;
+    else reg["pc"]++;
+    if (reg["pc"]<0||reg["pc"]>=iv.size()-1) return false;
+    return true;
+}
+
+main()
+{
+    vector<string> iv,xv,yv;
+    string tok,opx,opy;
+    map<string,long long> reg0;
+    map<string,long long> reg1;
+    vector<long long> mbox0,mbox1;
+    long long sent0{0ll},sent1{0ll},ins_count{0ll};
+    while (cin >> tok >> opx) {
+        if (!(tok=="snd"||tok=="rcv")) 
+            cin >> opy;
+        else 
+            opy = "";
+        cout << "Listing: " << tok << " " << opx << " " << opy << endl;
+        iv.push_back(tok);
+        xv.push_back(opx);
+        yv.push_back(opy); 
+    }
+
+    // simulate two programs
+    reg0["p"] = 0; reg1["p"] = 1;
+//    reg0["a"] = 1;            // debug
+    auto start = std::chrono::high_resolution_clock::now();
+    while (1) {
+        bool stepped0 = step(iv,xv,yv,reg0,mbox1,sent0,mbox0);
+//        bool stepped1 = step(iv,xv,yv,reg1,mbox0,sent1,mbox1);
+        ins_count+=2;
+        if (!stepped0) break;
+//        if (!stepped0 && !stepped1)
+//            break;
+    }
+    cout << "Mul: " << mul << endl;
+//    cout << "program 1 sent: " << sent1 << " messages." << endl;
+    auto end = std::chrono::high_resolution_clock::now();
+    std::chrono::duration<double> elapsed_seconds = end - start;
+    cout << "Instruction count: " << ins_count << " in " << 
+             elapsed_seconds.count()*1000 << " msec " <<
+             ins_count / elapsed_seconds.count() / 1000000 << " MIPs" << endl;
+    return 0;    
+}
+```
+
+Part 2 asked us to optimize the Duet assembly language and run it to 
+completion with the answer being the contents of the h register.
+
+The code below is *just barely* C++ code!
+
+```C++
+// Advent of Code 2017
+// Day 23 Part 2 - Coprocessor Conflagration
+
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    long long a,b,c,d,e,f,g,h,i;
+    a=1; b=c=d=e=f=g=h=0;
+
+    b=93;                                           // set b 93
+    c= b;                                           // set c b
+    if (a!=0) goto l5;                              // jnz a 2
+    goto l9;                                        // jnz 1 5
+l5: b*=100;                                         // mul b 100
+    b+=100000;              // b = 109300           // sub b -100000
+    c=b;                                            // set c b
+    c+=17000;               // c = b + 17000        // sub c -17000
+
+    while (b!=c) {
+    l9: f=1;                    // set flag             // set f 1
+        d=2;                    // set trial multipland // set d 2
+
+        // replace the following with:
+        for (int factor=2;factor<b/2;++factor) {
+            if (b%factor==0) {
+                f=0;
+                break;
+            }
+        }
+
+/*      while (d!=b && f==1) {      // is_prime
+        l11:e=2;                    // find                 // set e 2
+
+            while (e!=b && f==1) {      // is_prime
+            l12:g=d;                                            // set g d
+                g*=e;                   // g = d*e              // mul g e
+                g-=b;                   // if (d*e!=b)          // sub g b
+                if(g!=0) goto l17;      //     f = 0            // jnz g 2
+                f=0;                    // clear f if divisor   // set f 0
+                                        // f = isprime
+            l17:e++;                                            // sub e -1
+                g=e;                    // g = e + 1            // set g e
+                g-=b;                   // g = g - b            // sub g b
+  //            if(g!=0) goto l12;                              // jnz g -8
+            }
+
+            d++;                                            // sub d -1
+            g=d;                                            // set g d
+            g-=b;                                           // sub g b
+//          if(g!=0) goto l11;                              // jnz g -13
+        }*/
+
+        if(f!=0) goto l27;      // if (!is_prime)       // jnz f 2
+        h++;                    //     h = h + 1        // sub h -1
+    l27:g=b;                    // endif                // set g b
+        g-=c;                   // if (b==c)            // sub g c
+        if(g!=0) goto l31;      //     break            // jnz g 2
+        goto done;              // quit if we get here  // jnz 1 3
+    l31:b+=17;                                          // sub b -17
+        goto l9;                                        // jnz 1 -23
+    }
+
+done:
+    cout << h << endl;
+    return 0;
+}
 ```
 
 ### Day 22 - Sporifica Virus
