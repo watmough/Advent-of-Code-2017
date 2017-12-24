@@ -4,9 +4,6 @@
 
 Rank: 2240 / 2221
 
-Search space algorithms beyond just a simple flood-fill or dumping a tree are
-somewhat of a blindspot I'm fixing in my coding.
-
 Part 1:
 What is the strength of the strongest bridge you can make with the components you have available?
 
