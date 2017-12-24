@@ -1,6 +1,6 @@
 # Advent-of-Code-2017 
 
-### Day 24 - Electromagnetic Moat
+### Day 24 - [Electromagnetic Moat](http://adventofcode.com/2017/day/24)
 
 Rank: 2240 / 2221
 
@@ -124,7 +124,7 @@ Part 1: 1906
 Part 2: 1824
 ```
 
-### Day 23 - Coprocessor Conflagration
+### Day 23 - [Coprocessor Conflagration](http://adventofcode.com/2017/day/23)
 
 Rank: 345 / ---
 
@@ -292,7 +292,7 @@ done:
 }
 ```
 
-### Day 22 - Sporifica Virus
+### Day 22 - [Sporifica Virus](http://adventofcode.com/2017/day/22)
 
 I was a few hours late starting with this one. 
 
@@ -367,7 +367,7 @@ int main()
 }
 ```
 
-### Day 21 - 
+### Day 21 - [Fractal Art](http://adventofcode.com/2017/day/21)
 
 Rank: 2579 / 2509
 
@@ -543,7 +543,7 @@ int main()
 }
 ```
 
-### Day 20 - Particle Swarm
+### Day 20 - [Particle Swarm](http://adventofcode.com/2017/day/20)
 
 I started this one in F#, couldn't get part 2 to work, so rewrote in C++ and realized
 my mistake eventually.
@@ -630,7 +630,7 @@ int main()
 }
 ```
 
-### Day 19 - A Series of Tubes
+### Day 19 - [A Series of Tubes](http://adventofcode.com/2017/day/19)
 
 Rank: 631 / 628
 
@@ -703,7 +703,7 @@ int main()
 }
 ```
 
-### Day 18 - Duet
+### Day 18 - [Duet](http://adventofcode.com/2017/day/18)
 
 Rank: 999 / 566
 
@@ -840,7 +840,7 @@ Instruction count: 140280 in 93.075 msec 1.50717 MIPs
 PS C:\Workarea\Advent-of-Code-2017>
 ```
 
-### Day 17 - Spinlock
+### Day 17 - [Spinlock](http://adventofcode.com/2017/day/17)
 
 Rank: 414 / 928
 
@@ -882,7 +882,7 @@ int main()
 }
 ```
 
-### Day 16 - Permutation Promenade
+### Day 16 - [Permutation Promenade](http://adventofcode.com/2017/day/16)
 
 Rank: 959 / 580
 
@@ -955,7 +955,7 @@ int main()
 }
 ```
 
-### Day 15 - Dueling Generators
+### Day 15 - [Dueling Generators](http://adventofcode.com/2017/day/15)
 
 Rank: 576 / 498
 
@@ -1026,7 +1026,7 @@ PS C:\Workarea\Advent-of-Code-2017>
 
 ```
 
-### Day 14 - Disk Defragmentation
+### Day 14 - [Disk Defragmentation](http://adventofcode.com/2017/day/14)
 
 Rank: 304 / 334
 
@@ -1130,7 +1130,7 @@ int main()
 }
 ```
 
-### Day 13 - Packet Scanners
+### Day 13 - [Packet Scanners](http://adventofcode.com/2017/day/13)
 
 Rank: 3945 / 5082
 
@@ -1192,7 +1192,7 @@ Part 1: 1640
 Part 2: 3960702
 ```
 
-### Day 12 - Digital Plumber
+### Day 12 - [Digital Plumber](http://adventofcode.com/2017/day/12)
 
 Rank: 1341 / 2225 Live-streamed.
 
@@ -1273,7 +1273,7 @@ C:\Workarea\AOC2017\day 12\x64\Debug>
 */
 ```
 
-### Day 11 - Hex Ed
+### Day 11 - [Hex Ed](http://adventofcode.com/2017/day/11)
 
 Rank: 1035 / 1068 
 
@@ -1370,7 +1370,7 @@ Maxpath: 1485
 C:\Workarea\AOC2017\day 11\x64\Release>
 ```
 
-### Day 10 - Knot Hash
+### Day 10 - [Knot Hash](http://adventofcode.com/2017/day/10)
 
 Rank: 257 / 463
 
@@ -1442,7 +1442,7 @@ Part 2: 1c46642b6f2bc21db2a2149d0aeeae5d
 C:\Workarea\AOC2017\day 10\x64\Debug>
 ```
 
-### Day 9 - Stream Processing
+### Day 9 - [Stream Processing](http://adventofcode.com/2017/day/9)
 
 Rank: 314 / 256
 
@@ -1471,7 +1471,7 @@ int main()
 }
 ```
 
-### Day 8 - I Heard You Like Registers
+### Day 8 - [I Heard You Like Registers](http://adventofcode.com/2017/day/8)
 
 Rank: 931 / 910
 
@@ -1540,7 +1540,7 @@ Max (final): 4902
 Max (ever ): 7037
 ```
 
-### Day 7 - Recursive Circus
+### Day 7 - [Recursive Circus](http://adventofcode.com/2017/day/7)
 
 Rank: 6625 / 5791
 
@@ -1671,7 +1671,7 @@ node: ltleg should be 1792 + -6 - 984 -> 802
 
 C:\Workarea\AOC2017\day 07\x64\Debug>
 ```
-### Day 6 - Memory Reallocation
+### Day 6 - [Memory Reallocation](http://adventofcode.com/2017/day/6)
 
 Rank: 5253 / 5049
 
@@ -1725,7 +1725,7 @@ Part 2: 2765
 C:\Workarea\AOC2017\day 06\x64\Release>
 ```
 
-### Day 5 - A Maze of Twisty Trampolines - All Alike
+### Day 5 - [A Maze of Twisty Trampolines - All Alike](http://adventofcode.com/2017/day/5)
 
 Rank: 6932 / 6599
 
@@ -1772,7 +1772,7 @@ Executed part 2: 31150702
 C:\Workarea\AOC2017\day 05\x64\Release>
 ```
 
-### Day 4 - Passphrases
+### Day 4 - [Passphrases](http://adventofcode.com/2017/day/4)
 
 Rank: 1410 / 1109
 
@@ -1826,7 +1826,7 @@ int main(int argc, char* argv[])
 }
 ```
 
-### Day 3 - Spiral Memory - Take 2: Rewite!
+### Day 3 - [Spiral Memory - Take 2](http://adventofcode.com/2017/day/3)
 
 Code for [Day 03.cpp](https://raw.githubusercontent.com/watmough/Advent-of-Code-2017/master/day%2003.cpp)
 
@@ -1949,7 +1949,7 @@ Enter value (-1 to quit part 2)
 Value is 349975
 ```
 
-### Day 3 - Memory Spirals
+### Day 3 - [Memory Spirals](http://adventofcode.com/2017/day/3)
 
 Rank: 5454 / 3723 (Based on this code, not the rewrite)
 
@@ -2115,7 +2115,7 @@ Enter a value for part 2
 ...output redacted...
 349975
 ```
-### Day 2 - Corruption Checksum
+### Day 2 - [Corruption Checksum](http://adventofcode.com/2017/day/2)
 
 Rank: 6722 / 6018
 
@@ -2198,7 +2198,7 @@ int main(int argc, char* argv[])
 }
 ```
 
-### Day 1 - Inverse Captcha
+### Day 1 - [Inverse Captcha](http://adventofcode.com/2017/day/1)
 
 Rank: 7576 / 6254
 
