@@ -5,7 +5,7 @@ Some of the things I learned. Some wins. Some areas I was able to improve. And n
 The most important thing is to say THANK-YOU to topaz2078 daggerdragon and Aneurysm9.
 
 __Puzzles__
-1. Warm-up puzzle, and getting us warmed up for the various hilarious scenarios through the coming puzzles. ([--- Day 1: Inverse Captcha ---](http://adventofcode.com/2017/day/1)) [code](/day_01.1.cpp)[code](/day_01.2.cpp)
+1. Warm-up puzzle, and getting us warmed up for the various hilarious scenarios through the coming puzzles. [[--- Day 1: Inverse Captcha ---](http://adventofcode.com/2017/day/1)] [[code](/day_01.1.cpp)] [[code](/day_01.2.cpp)]
 2. Ok, but need to apply some proper idiom and forward iterators on the input. ([--- Day 2: Corruption Checksum ---](http://adventofcode.com/2017/day/2))[code](/day_02.1.cpp)[code](/day_02.2.cpp)
 3. This puzzle bit me pretty hard, though I did it the 'hard' way initially using math. Then I had to take the simple approach to get Part 2. I rewrote this one, and that code could use some improvement also. ([--- Day 1: Spiral Memory ---](http://adventofcode.com/2017/day/3))[code](/day_03.cpp)
 4. List processing puzzle. I should have spotted I could have used a `std::set<>` and saved myself some typing. ([--- Day 4: High-Entropy Passphrases ---](http://adventofcode.com/2017/day/4))[code](/day_04.cpp)
