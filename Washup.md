@@ -5,14 +5,22 @@ Some of the things I learned. Some wins. Some areas I was able to improve. And n
 The most important thing is to say THANK-YOU to topaz2078 daggerdragon and Aneurysm9.
 
 __Puzzles__
-1. Warm-up puzzle, and getting us warmed up for the various hilarious scenarios through the coming puzzles. [[--- Day 1: Inverse Captcha ---](http://adventofcode.com/2017/day/1)] [[code](/day_01.1.cpp)] [[code](/day_01.2.cpp)]
-2. Ok, but need to apply some proper idiom and forward iterators on the input. ([--- Day 2: Corruption Checksum ---](http://adventofcode.com/2017/day/2))[code](/day_02.1.cpp)[code](/day_02.2.cpp)
-3. This puzzle bit me pretty hard, though I did it the 'hard' way initially using math. Then I had to take the simple approach to get Part 2. I rewrote this one, and that code could use some improvement also. ([--- Day 1: Spiral Memory ---](http://adventofcode.com/2017/day/3))[code](/day_03.cpp)
-4. List processing puzzle. I should have spotted I could have used a `std::set<>` and saved myself some typing. ([--- Day 4: High-Entropy Passphrases ---](http://adventofcode.com/2017/day/4))[code](/day_04.cpp)
-5. Really-fun self-modifying code. One of my better solutions. ([Day 5: A Maze of Twisty Trampolines, All Alike](http://adventofcode.com/2017/day/5))
+1. Warm-up puzzle, and getting us warmed up for the various hilarious scenarios through the coming puzzles. **[[Day 1: Inverse Captcha](http://adventofcode.com/2017/day/1)] [[code](/day_01.1.cpp)] [[code](/day_01.2.cpp)]**
+
+2. Ok, but need to apply some proper idiom and forward iterators on the input. **[[--- Day 2: Corruption Checksum ---](http://adventofcode.com/2017/day/2)] [[code](/day_02.1.cpp)] [[code](/day_02.2.cpp)]**
+
+3. This puzzle bit me pretty hard, though I did it the 'hard' way initially using math. Then I had to take the simple approach to get Part 2. I rewrote this one, and that code could use some improvement also. **[[--- Day 1: Spiral Memory ---](http://adventofcode.com/2017/day/3)] [[code](/day_03.cpp)]**
+
+4. List processing puzzle. I should have spotted I could have used a `std::set<>` and saved myself some typing. **[[--- Day 4: High-Entropy Passphrases ---](http://adventofcode.com/2017/day/4)] [[code](/day_04.cpp)]**
+
+5. Really-fun self-modifying code. One of my better solutions. [[Day 5: A Maze of Twisty Trampolines, All Alike](http://adventofcode.com/2017/day/5)] [[code](/day_05.cpp)]
+
 6. Memory reallocation on a circular buffer. I kind of like this solution, though it's a bit tricky to read. ([Day 6: Memory Reallocation](http://adventofcode.com/2017/day/6))
+
 7. Topological sorting and balancing. This puzzle took us a step up in difficulty, and it will be worth studyinh others' solutions. My code works but nothing to be proud of. ([Day 7: Recursive Circus](http://adventofcode.com/2017/day/7))
+
 8. Simulate a CPU. Fun puzzle and a nice solution. I especially enjoyed tweaking this one to run lambdas out of a `std::map<>`. ([Day 8: I Heard You Like Registers](http://adventofcode.com/2017/day/8))
+
 9. I did a C-style parser for this one, as I typically would when say parsing the kind of data I am often tasked with munging during my day job. Lexing is probably one of my favorite things and my code for this is probably the most me. I still have my [Cole & Morrison: An Introduction to Programming with S-Algol](https://www.amazon.com/dp/0521250013) hardcover where I picked this up. ([Day 9: Stream Processing](http://adventofcode.com/2017/day/9))
 10. Implementing a hashing function including a salt and various cryptoblocks and generation of a final hash value. My code for this works but is not great. Generally I've been quite strong on writing bug-free code, aside from the odd typo, but I could really use some time with the latest C++ manual. ([Day 10: Knot Hash](http://adventofcode.com/2017/day/10))
 11. Reduction of a sequence of moves across a grid of hexagons to a running maximum and a final distance. I found this quite tricky initially, but I was able to identify appropriate reduction rules and apply these in constant time, without needing to track anything except the total count of each of the possible 6 moves from one hexagon to another. ([Day 11: Hex Ed](http://adventofcode.com/2017/day/11))
