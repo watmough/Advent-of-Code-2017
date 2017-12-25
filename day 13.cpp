@@ -1,7 +1,6 @@
 // Advent of Code 2017
 // Day 13 - Packet Scanners
 
-#include "stdafx.h"
 #include <iostream>
 #include <vector>
 #include <algorithm>

@@ -1,7 +1,6 @@
 // Advent of Code 2017
 // Day 14 - Disk Defragmentation
 
-#include "stdafx.h"
 #include <iostream>
 #include <iomanip>
 #include <sstream>

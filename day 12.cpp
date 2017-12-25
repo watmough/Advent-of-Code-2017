@@ -2,7 +2,6 @@
 // http://adventofcode.com/
 // Day 12 - Digital Plumber
 
-#include "stdafx.h"
 #include <iostream>
 #include <sstream>
 #include <string>

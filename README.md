@@ -1,5 +1,7 @@
 # Advent-of-Code-2017 
 
+See also my in-conclusion [washup](Washup.md).
+
 ### Day 25 - [The Halting Problem](http://adventofcode.com/2017/day/25)
 
 Rank: 436 / 391
@@ -1841,7 +1843,6 @@ How many steps does it now take to reach the exit?
 // Advent of Code 2017
 // http://adventofcode.com/
 
-#include "stdafx.h"
 #include <iostream>
 #include <string>
 #include <vector>
@@ -1874,7 +1875,7 @@ Executed part 2: 31150702
 C:\Workarea\AOC2017\day 05\x64\Release>
 ```
 
-### Day 4 - [Passphrases](http://adventofcode.com/2017/day/4)
+### Day 4 - [High-Entropy Passphrases](http://adventofcode.com/2017/day/4)
 
 Rank: 1410 / 1109
 
@@ -1889,7 +1890,6 @@ to form any other word in the passphrase. Under this new system policy, how many
 // Advent of Code 2017
 // http://adventofcode.com/
 
-#include "stdafx.h"
 #include <iostream>
 #include <string>
 #include <vector>
