@@ -29,7 +29,7 @@ let part1 =
 
 let simulate particle =
     let ((x,y,z),(vx,vy,vz),(ax,ay,az)) = particle
-    ((x+vx,y+vy,z+vz),(vx+ax,vy+ay,vz+az),(ax,ay,az))
+    ((x+vx+ax,y+vy+ay,z+vz+az),(vx+ax,vy+ay,vz+az),(ax,ay,az))
 
 let stepAll state =     // group by position, and filter by non-colliding
     state 
