@@ -1,12 +1,11 @@
 // Advent of Code 2017
-// http://adventofcode.com/
+// Day 6 - Memory Reallocation
 
 #include <iostream>
 #include <vector>
 #include <algorithm>
 #include <string>
 #include <map>
-
 using namespace std;
 
 void reallocate(vector<int>& m)

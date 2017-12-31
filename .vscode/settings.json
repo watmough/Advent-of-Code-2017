@@ -8,6 +8,11 @@
         "type_traits": "cpp",
         "xutility": "cpp",
         "utility": "cpp",
-        "chrono": "cpp"
+        "chrono": "cpp",
+        "iostream": "cpp",
+        "sstream": "cpp",
+        "bitset": "cpp",
+        "xlocale": "cpp",
+        "xlocmon": "cpp"
     }
 }

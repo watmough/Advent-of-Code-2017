@@ -1,6 +1,5 @@
-// day04.cpp : Defines the entry point for the console application.
 // Advent of Code 2017
-// http://adventofcode.com/
+// Day 04 - High-Entropy Passphrases
 
 #include <iostream>
 #include <string>

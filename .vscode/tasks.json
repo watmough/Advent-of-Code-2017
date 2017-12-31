@@ -6,7 +6,7 @@
         {
             "label": "build",
             "type": "shell",
-            "command": "g++ -g -O3 -march=native -std=c++14 -fconstexpr-depth=40000000 '${relativeFile}' -o a.exe",
+            "command": "g++ -g -std=c++14 -fpermissive '${relativeFile}' -o a.exe",
 //            "command": "clang++ -g -O3 -std=c++14 '${relativeFile}' -o a.out",
             "problemMatcher": {
                 "owner": "cpp",

@@ -1,11 +1,10 @@
 // Advent of Code 2017
-// http://adventofcode.com/
+// Day 05 - A Maze of Twisty Trampolines, All Alike
 
 #include <iostream>
 #include <string>
 #include <vector>
 #include <iterator>
-
 using namespace std;
 
 int interpret(vector<int> ins,bool part2 = false)
@@ -18,7 +17,7 @@ int interpret(vector<int> ins,bool part2 = false)
 
 int main(int argc, char* argv[])
 {
-    vector<int> ins{ istream_iterator<int>{std::cin},{} };
+    vector<int> ins{ istream_iterator<int>{cin},{} };
     cout << "Executed part 1: " << interpret(ins) << endl;
     cout << "Executed part 2: " << interpret(ins,true) << endl;
     return 0;
