@@ -23,6 +23,17 @@ string without_punctuation(string word, PUNCTUATION allow_whitespace=with_whites
     return fixed;
 }
 
+// https://www.geeksforgeeks.org/find-the-element-that-appears-once/
+int getSingleValue(vector<int> vec)
+{
+    int ones{0}, twos{0}, common{0};
+    for( auto val : vec ) {
+        twos  |=(ones&val); ones^=val;
+        common=~(ones&twos);ones&=common;
+        twos&=common;
+    }
+    return ones;
+}
 
 template<class T>
 class jwGraph
@@ -172,15 +183,16 @@ public:
     }
 
     // soooo ugly,... needs to be cleaned up
+    // Finds an unbalanced node in a weighted tree - Advent of Code 2017 Day 07 Part 2
     void find_balance(T n, int imbalance)
     {
         map<T,int> hack{total_weight};
         vector<T> vecchildren{ begin(edges[n]), end(edges[n]) };
         sort(begin(vecchildren), end(vecchildren), [&](const T& a, const T& b)->bool {return hack[a]<hack[b];});
-        cout << "sorted " << vecchildren.size() << " children of node " << n << endl;
-        for (auto child : vecchildren) 
-            cout << child << " " << total_weight[child] << endl;
-        int last{ vecchildren.size() - 1 };
+//        cout << "sorted " << vecchildren.size() << " children of node " << n << endl;
+//        for (auto child : vecchildren) 
+//            cout << child << " " << total_weight[child] << endl;
+        int last{ int(vecchildren.size()) - 1 };
         if (last>0 && hack[vecchildren[0]] != hack[vecchildren[1]])
             find_balance(vecchildren[0], hack[vecchildren[1]] - hack[vecchildren[0]]);
         else if (last>0 && hack[vecchildren[last]] != hack[vecchildren[last - 1]])
